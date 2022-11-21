@@ -1,0 +1,65 @@
+body { 
+  font-family:Verdana,Arial,Sans-serif ;
+  margin-top: -18px;
+  }
+  
+
+fieldset{
+	background-color:#eee;
+	border: 2px solid #3f4445;				
+	font-size:20px;
+	border-width: 5px;
+	border-radius: 5px; }
+
+legend {
+    background-color:#008CBA;
+    color:white;	
+    padding: 0 6px 0 6px;
+	border-radius: 5px;}
+	
+
+#getData{
+	line-height:2;
+	width :500px;
+	height:400px;}
+	
+.query{padding:0px 16px 16px 16px;
+margin-left: 20px; }
+
+
+label{
+	display: inline-block;
+	float :left;
+	width: 100px;}
+
+input{
+	width: 300px;}
+	
+.button {
+	border-radius: 4px;
+	background-color: #3f4445;
+	border: none;
+	color: white;
+	width:100px;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	margin:20px 13px 0 0 ;
+	font-size: 15px;
+	float:left;}
+	
+.button2 {
+	border-radius: 4px;
+	background-color: #3f4445;
+	border: none;
+	color: white;
+	width:150px;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	margin:20px 13px 0 0 ;
+	font-size: 15px;
+	float:left;}
+.button2:hover{background-color: #008CBA;}
+	
+.button:hover{background-color: #008CBA;}

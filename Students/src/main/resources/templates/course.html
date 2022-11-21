@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/navBar.css">
+<link rel="stylesheet" href="/QueryForm.css">
+<link rel="stylesheet" href="/table.css">
+</head>
+<body>
+	<div id="navBar">
+		<ul>
+			<li><a th:href="@{'/home'}">Main Page</a></li>
+			<li><a th:href="@{'/new'}">Student data</a></li>
+			<li><a th:href="@{'/lecturer'}">Lecturer data</a></li>
+			<li><a th:href="@{'/course'}">Courses</a></li>
+
+
+		</ul>
+	</div>
+	<div style="padding-top: 20px;">
+		<h2 class="topic">Course details</h2>
+		<br> <br>
+		<tr>
+
+			<div align="center">
+				<div class="panel-body" align="left">
+					<table class="table table-hover table-bordered" style="width: 80% ; margin-left: 10px;">
+						<thead class="thead-dark">
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Lecturer</th>
+								<th>Enrolled</th>
+								<th style="width: 15%">Assign Lecturer</th>
+								<th style="width: 15%">Enroll students</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="Course:${listcourses}">
+								<td th:text="${Course.id}">ID</td>
+								<td th:text="${Course.name}">Name</td>
+								<td
+									th:text="${Course.Lecturer} ? ${Course.Lecturer.name}:'not assigned'">lecturer</td>
+
+								<td><div th:each="Student:${Course.enrolled}">
+										<div th:text="${Student.name}">enrolled</div>
+									</div></td>
+								<td><form th:action="@{'/assign/' + ${Course.id}}">
+										<input type="text" th:name="participant" style="width: 40px;"
+											placeholder="id" /> <input type="submit"
+											style="width: 80px;" />
+									</form></td>
+
+								<td><form th:action="@{'/enrollnew/' + ${Course.id}}">
+										<input type="text" th:name="studentid" style="width: 40px;"
+											placeholder="id" /> <input type="submit"
+											style="width: 80px;" />
+									</form></td>
+
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+		</tr>
+
+		</tbody>
+		</table>
+	</div>
+
+	<div class="query" style="padding: 10px; margin-top: 30px;">
+		<form action="#" th:action="@{/saveCourse}" th:object="${course}"
+			method="post" name="Form2" id="Form2">
+			<div id="getData">
+				<fieldset style="padding: 20px;">
+					<legend>Add Course :</legend>
+					<div>
+						<label for="name">Name:</label> <input type="text"
+							th:field="*{name}" placeholder="Course Name" />
+					</div>
+
+					<br>
+
+					<button type="submit" class="button">Submit</button>
+				</fieldset>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

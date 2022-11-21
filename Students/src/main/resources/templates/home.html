@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Student management</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/postrequest.js"></script>
+<script src="/getrequest.js"></script>
+<link rel="stylesheet" href="/navBar.css">
+<link rel="stylesheet" href="/QueryForm.css">
+</head>
+<body>
+	<div id="navBar">
+		<ul>
+			<li><a th:href="@{'/home'}">Main Page</a></li>
+			<li><a th:href="@{'/new'}">Student data</a></li>
+			<li><a th:href="@{'/lecturer'}">Lecturer data</a></li>
+			<li><a th:href="@{'/course'}">Courses</a></li>
+
+		</ul>
+	</div>
+	<br>
+	<br>
+	<div id="postResultDiv" align="center"></div>
+	<div class="query" >
+		<form name="Form1" id="Form1">
+		<div id ="getData">
+			<fieldset>
+				<legend>Student Details</legend>
+				<div class="form-group">
+					<label for="name">Name:</label> <input type="text"
+						class="form-control" id="name" placeholder="Enter name"
+						name="name">
+				</div>
+				<div class="form-group">
+					<label for="score">Score:</label> <input type="text"
+						class="form-control" id="score" placeholder="Enter score"
+						name="score">
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label> <input type="email"
+						class="form-control" id="email" placeholder="Enter email"
+						name="email">
+				</div>
+				<div class="form-group">
+					<label for="age">Age:</label> <input type="text"
+						class="form-control" id="age" placeholder="Enter age" name="age">
+				</div>
+				<br>
+
+				<button type="submit" class="button">Submit</button>
+			</fieldset>
+			</div>
+		</form>
+		<button id="getAllStudents" type="button" class="button2">Get
+			Student Data</button><br>
+		<div id="getResultDiv" style="padding: 20px 10px 20px 0px">
+			<ul class="list-group">
+			</ul>
+		</div>
+		<br>
+	</div>
+</body>
+</html>
